@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Yarr_for_Reddit.src.view;
 
 namespace Yarr_for_Reddit
 {
@@ -23,6 +24,13 @@ namespace Yarr_for_Reddit
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            YarrDashboardView Dash = new YarrDashboardView();
+            Dash.Show();
+            this.Close();
         }
     }
 }
