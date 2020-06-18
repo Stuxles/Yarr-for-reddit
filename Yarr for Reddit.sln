@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yarr for Reddit", "Yarr for Reddit\Yarr for Reddit.csproj", "{FAAB0569-75EF-49AE-9CA2-0308BF0B7F09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yarn", "Yarn\Yarn.csproj", "{ADD9F679-8576-4840-9FFD-17A15FF675EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FAAB0569-75EF-49AE-9CA2-0308BF0B7F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAAB0569-75EF-49AE-9CA2-0308BF0B7F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAAB0569-75EF-49AE-9CA2-0308BF0B7F09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADD9F679-8576-4840-9FFD-17A15FF675EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADD9F679-8576-4840-9FFD-17A15FF675EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADD9F679-8576-4840-9FFD-17A15FF675EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADD9F679-8576-4840-9FFD-17A15FF675EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
