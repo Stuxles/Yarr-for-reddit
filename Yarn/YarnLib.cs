@@ -2,10 +2,10 @@
 {
     public class YarnLib
     {
-        private string _apiKey;
-        public YarnLib(string apiKey)
+        private string _clientId;
+        public YarnLib(string clientId)
         {
-            this._apiKey = apiKey;
+            this._clientId = clientId;
         }
     }
 }
