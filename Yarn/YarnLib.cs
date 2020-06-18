@@ -7,5 +7,10 @@
         {
             this._clientId = clientId;
         }
+
+        public string RetrieveAccessToken()
+        {
+            return "";
+        }
     }
 }
