@@ -124,7 +124,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Yarn\Yarn.csproj">
+      <Project>{add9f679-8576-4840-9ffd-17a15ff675ee}</Project>
+      <Name>Yarn</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <SplashScreen Include="resources\images\SplashScreen.png" />
   </ItemGroup>
