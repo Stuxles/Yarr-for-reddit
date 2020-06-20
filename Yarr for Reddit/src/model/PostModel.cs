@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
-using System.Collections;
 
 namespace Yarr_for_Reddit.src.model
 {

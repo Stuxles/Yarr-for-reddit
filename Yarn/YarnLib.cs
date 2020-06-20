@@ -5,8 +5,8 @@ namespace Yarn
     public class YarnLib
     {
         private string _clientId;
-        public string accessToken { get; set; }
-        public string refreshToken { get; set; }
+        public string AccessToken { get; set; }
+        public string RefreshToken { get; set; }
 
         public YarnLib(string clientId)
         {

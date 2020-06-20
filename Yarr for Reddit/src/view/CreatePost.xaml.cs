@@ -15,21 +15,16 @@ using System.Windows.Shapes;
 namespace Yarr_for_Reddit.src.view
 {
     /// <summary>
-    /// Interaction logic for YarrDashboardView.xaml
+    /// Interaction logic for CreatePost.xaml
     /// </summary>
-    public partial class YarrDashboardView : Window
+    public partial class CreatePost : Window
     {
-        public YarrDashboardView()
+        public CreatePost()
         {
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Click_SubmitPost(object sender, RoutedEventArgs e)
         {
 
         }

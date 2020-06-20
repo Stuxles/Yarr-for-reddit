@@ -28,9 +28,22 @@
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
-        
-        
+        <TextBlock Grid.Column="1" Grid.Row="2" FontSize="36" Text="Create Post" />
 
+        <TextBlock Grid.Column="1" Grid.Row="3" FontSize="36" Text="Title" />
+        <TextBox x:Name="Title" Grid.Column="2" Grid.Row="3" Width="1000" Height="36" />
+
+        <TextBlock Grid.Column="1" Grid.Row="4" FontSize="36" Text="Content" />
+        <TextBox x:Name="Content" Grid.Column="2" Grid.Row="4" Width="1000" Height="288"  />
+
+        <Button Grid.Column="1" Grid.Row="5" Content="Upload Image" Height="36" Click="Click_UploadImage"/>
+        <ComboBox Grid.Column="2" Grid.Row="5">
+            <ComboBoxItem>Subreddit one</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">Subreddit two</ComboBoxItem>
+            <ComboBoxItem>Subreddit three</ComboBoxItem>
+        </ComboBox>
+
+        <Button Grid.Column="1" Grid.Row="6" Content="Submit Post" Height="36" Click="Click_SubmitPost"/>
 
 
     </Grid>

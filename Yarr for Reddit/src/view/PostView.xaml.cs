@@ -23,5 +23,7 @@ namespace Yarr_for_Reddit.src.view
         {
             InitializeComponent();
         }
+
+       
     }
 }
