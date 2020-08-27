@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using Yarn.Models;
@@ -37,12 +38,11 @@ namespace Yarn.Controllers
             var releases = JArray.Parse(response.Content);
         }
 
-        public class Release
+        public void urlToModel(string url)
         {
-            [DeserializeAs(Name = "name")]
-            public string Name {get; set;}
-            [DeserializeAs(Name = "published_at")]
-            public string PublishedAt {get; set;}
+            var client = new RestClient(url);
+            var response = client.Execute<List<subreddit>>(new RestRequest());
+            var releases = response.Data;
         }
 
 
