@@ -30,7 +30,7 @@ namespace Yarn.Controllers
             subreddit oMycustomclassname = Newtonsoft.Json.JsonConvert.DeserializeObject<subreddit>(jsonString);
         }
 
-        // url to ... realese?
+        // url to ... release?
         public void test(string url)
         {
             var client = new RestClient(url); 
