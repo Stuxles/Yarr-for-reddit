@@ -59,6 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="src\model\SubData.cs" />
     <Compile Include="src\view\PostView.xaml.cs">
       <DependentUpon>PostView.xaml</DependentUpon>
     </Compile>

@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Yarr_for_Reddit.src;
 
 namespace Yarr_for_Reddit
 {
@@ -13,5 +14,11 @@ namespace Yarr_for_Reddit
     /// </summary>
     public partial class App : Application
     {
+
+        public App()
+        {
+           
+        }
+        
     }
 }
