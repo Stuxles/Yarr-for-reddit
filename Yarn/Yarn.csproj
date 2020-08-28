@@ -45,8 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\Subreddit.cs" />
-    <Compile Include="Models\subreddit.cs" />
     <Compile Include="OAuthToken.cs" />
     <Compile Include="YarnLib.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
