@@ -13,9 +13,11 @@
 
         <ScrollViewer CanContentScroll ="True"  HorizontalAlignment="Left" Height="689" Margin="273,0,0,0" VerticalAlignment="Top" Width="816">
             <StackPanel x:Name="stacky" Height="680" Width="700">
-                
+
             </StackPanel>
         </ScrollViewer>
+        <Button Content="Previous post" FontSize="25" HorizontalAlignment="Left" Margin="10,640,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="0.946,0.793" Height="42" Click="PreviousPostButton_Click"/>
+        <Button Content="Next post" FontSize="25" HorizontalAlignment="Left" Margin="1089,640,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="0.946,0.793" Height="42" Click="NextPostButton_Click"/>
 
     </Grid>
 </Window>

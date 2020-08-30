@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -22,22 +23,26 @@ namespace Yarr_for_Reddit.src.view
     public partial class YarrDashboardView : Window
     {
         ApiHandler api = new ApiHandler();
+        int postId = 1;
+        Label title = new Label();
+        Image image = new Image();
+        string subredditName = "picture";
 
         public YarrDashboardView()
         {
-            api.getApiData();
+            _ = api.getApiData(subredditName);
             InitializeComponent();
-            CreatePost();
+            CreatePost(postId);
         }
 
-        public async void CreatePost()
+        public async void CreatePost(int postId)
         {
-            await api.getApiData();
-            Image image = new Image();
+            await api.getApiData(subredditName);
+         
             string uri;
-            if (api.sub.data.children[1].data.url_overridden_by_dest != null)
+            if (api.sub.data.children[postId].data.url_overridden_by_dest != null)
             {
-                uri = api.sub.data.children[1].data.url_overridden_by_dest;
+                uri = api.sub.data.children[postId].data.url_overridden_by_dest;
             }
             else
             {
@@ -45,18 +50,50 @@ namespace Yarr_for_Reddit.src.view
             }
             
 
-            Label title = new Label();
-            title.Content = api.sub.data.children[1].data.title;
+            
+            title.Content = api.sub.data.children[postId].data.title;
             title.FontSize = 70;
             title.FontFamily = new FontFamily("Trebuchet MS");
+            //TODO afvangen dat uri string soms null is, geeft nu nog een error
             image.Source = new BitmapImage(new Uri(
-             api.sub.data.children[1].data.url_overridden_by_dest));
-            image.Width = 500;
-            image.Height = 600;
+             api.sub.data.children[postId].data.url_overridden_by_dest));
+            image.Width = 250;
+            image.Height = 300;
 
-            
             stacky.Children.Add(title);
             stacky.Children.Add(image);
+        }
+
+        public void nextPost()
+        {
+            stacky.Children.Remove(title);
+            stacky.Children.Remove(image);
+
+            postId++;
+            CreatePost(postId);
+        }
+
+        public void previousPost()
+        {
+            stacky.Children.Remove(title);
+            stacky.Children.Remove(image);
+
+            if (postId > 1)
+            {
+                postId--;
+            }
+            CreatePost(postId);
+        }
+
+        // Loads the next post.
+        private void NextPostButton_Click(object sender, RoutedEventArgs e)
+        {
+            nextPost();
+        }
+        // Loads the previous post.
+        private void PreviousPostButton_Click(object sender, RoutedEventArgs e)
+        {
+            previousPost();
         }
 
     }

@@ -16,11 +16,12 @@ namespace Yarr_for_Reddit.src
         public Rootobject sub = new Rootobject();
 
         //onnodige await
-        public async Task<Rootobject> getApiData()
+        public async Task<Rootobject> getApiData(string subredditName)
         {
+            string subredditUrl = "https://www.reddit.com/r/" + subredditName + ".json";
             SubredditModel subreddit = new SubredditModel();
             HttpClient httpclient = new HttpClient();
-            var response = await httpclient.GetStringAsync("https://www.reddit.com/r/gaming.json");
+            var response = await httpclient.GetStringAsync(subredditUrl);
             sub = JsonConvert.DeserializeObject<Rootobject>(response);
             Console.WriteLine(sub.data.children[0].data.title);
             return await Task.FromResult(sub);
