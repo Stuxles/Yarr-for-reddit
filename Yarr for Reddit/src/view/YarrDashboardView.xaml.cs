@@ -23,7 +23,7 @@ namespace Yarr_for_Reddit.src.view
     public partial class YarrDashboardView : Window
     {
         ApiHandler api = new ApiHandler();
-        int postId = 1;
+        int postId = 0;
         Label title = new Label();
         Image image = new Image();
         string subredditName = "picture";
@@ -95,6 +95,12 @@ namespace Yarr_for_Reddit.src.view
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             subredditName = t.Text;
+        }
+
+        private void GoToSubredditButton_Click(object sender, RoutedEventArgs e)
+        {
+            postId = 0;
+            CreatePost();
         }
     }
 }
