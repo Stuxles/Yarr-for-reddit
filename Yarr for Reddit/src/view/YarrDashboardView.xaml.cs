@@ -40,6 +40,13 @@ namespace Yarr_for_Reddit.src.view
         {
             await api.GetApiData(subredditName);
          
+            
+            //title
+            title.Content = api.sub.data.children[postId].data.title;
+            title.FontSize = 42;
+            title.FontFamily = new FontFamily("Trebuchet MS");
+
+            //image
             string uriString;
             if (api.sub.data.children[postId].data.url_overridden_by_dest != null)
             {
@@ -49,12 +56,6 @@ namespace Yarr_for_Reddit.src.view
             {
                 uriString = "https://cdn3.iconfinder.com/data/icons/abstract-1/512/no_image-512.png";
             }
-            
-
-            
-            title.Content = api.sub.data.children[postId].data.title;
-            title.FontSize = 70;
-            title.FontFamily = new FontFamily("Trebuchet MS");
             image.Source = new BitmapImage(new Uri(uriString));
             image.Width = 250;
             image.Height = 300;
@@ -67,18 +68,12 @@ namespace Yarr_for_Reddit.src.view
 
         public void NextPost()
         {
-            stacky.Children.Remove(title);
-            stacky.Children.Remove(image);
-
             postId++;
             CreatePost();
         }
 
         public void PreviousPost()
         {
-            stacky.Children.Remove(title);
-            stacky.Children.Remove(image);
-
             if (postId > 1)
             {
                 postId--;
