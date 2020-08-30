@@ -14,7 +14,11 @@ namespace Yarr_for_Reddit.src
     class ApiHandler
     {
         public Rootobject sub = new Rootobject();
-
+        /// <summary>
+        /// Get data from Reddit
+        /// </summary>
+        /// <param name="subredditName">Name of the subrredit without /r/ </param>
+        /// <returns></returns>
         public async Task<Rootobject> GetApiData(string subredditName)
         {
             string subredditUrl = "https://www.reddit.com/r/" + subredditName + ".json";

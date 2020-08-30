@@ -24,7 +24,9 @@ namespace Yarr_for_Reddit.src.view
             CreatePost();
             t.Text = subredditName;
         }
-
+        /// <summary>
+        /// Creates the post.
+        /// </summary>
         public async void CreatePost()
         {
             await api.GetApiData(subredditName);
@@ -38,6 +40,7 @@ namespace Yarr_for_Reddit.src.view
             selftext.Text = api.sub.data.children[postId].data.selftext;
             selftext.FontSize = 12;
             selftext.FontFamily = new FontFamily("Trebuchet MS");
+
             //image
             string uriString;
             if (api.sub.data.children[postId].data.url_overridden_by_dest != null)
@@ -60,7 +63,9 @@ namespace Yarr_for_Reddit.src.view
             PreviousPostButtonEnabler();
             UpdateInfo();
         }
-
+        /// <summary>
+        /// Update info panel with new information.
+        /// </summary>
         public void UpdateInfo()
         {
             var Page = (postId + 1).ToString();
