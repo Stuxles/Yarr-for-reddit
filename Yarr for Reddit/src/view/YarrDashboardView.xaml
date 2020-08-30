@@ -23,7 +23,7 @@
         </ScrollViewer>
         <Button Content="Previous post" Name="PreviousPostButton" FontSize="25" HorizontalAlignment="Left" Margin="10,640,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="0.946,0.793" Height="42" Click="PreviousPostButton_Click"/>
         <Button Content="Next post" FontSize="25" HorizontalAlignment="Left" Margin="0,640,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="0.946,0.793" Height="42" Click="NextPostButton_Click" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="74,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="101" TextChanged="TextBox_TextChanged" Name="t"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="74,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="101" Name="t"/>
         <Label Content="Subreddit" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" Width="64" Height="26"/>
         <Button Content="Go to subreddit" FontSize="18" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="0.946,0.793" Height="42" Click="GoToSubredditButton_Click"/>
 
@@ -39,7 +39,7 @@
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="3,87,0,0" TextWrapping="Wrap" Text="Subscribers :" Name="SubredditSubscribersTextBlock" VerticalAlignment="Top" Height="16" Width="168" Grid.ColumnSpan="2"/>
         <Label Content="Popular Subreddits" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Width="165" FontWeight="Bold" FontSize="16"/>
 
-        <Button Content="Gaming" FontSize="18" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="0.946,0.793" Height="42" Click="gamingSubredditButton_Click" Background="#FFC4C5E1"/>
+        <Button Content="Gaming" FontSize="18" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="0.946,0.793" Height="42" Click="GamingSubredditButton_Click" Background="#FFC4C5E1"/>
         <Button Content="The Netherlands" FontSize="18" HorizontalAlignment="Left" Margin="10,353,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="0.946,0.793" Height="42" Click="TheNetherlandsSubredditButton_Click" Background="#FFC4C5E1"/>
         <Button Content="Ajax Amsterdam" FontSize="18" HorizontalAlignment="Left" Margin="10,400,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="0.946,0.793" Height="42" Click="AjaxAmsterdamSubredditButton_Click" Background="#FFC4C5E1"/>
         <Button Content="Funny" FontSize="18" HorizontalAlignment="Left" Margin="10,447,0,0" VerticalAlignment="Top" Width="165" RenderTransformOrigin="0.946,0.793" Height="42" Click="FunnySubredditButton_Click" Background="#FFC4C5E1"/>

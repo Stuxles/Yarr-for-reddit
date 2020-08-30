@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Yarr_for_Reddit.src;
 
 namespace Yarr_for_Reddit.src.view
 {
@@ -22,12 +11,12 @@ namespace Yarr_for_Reddit.src.view
     /// </summary>
     public partial class YarrDashboardView : Window
     {
-        ApiHandler api = new ApiHandler();
-        int postId = 0;
-        Label title = new Label();
-        TextBlock selftext = new TextBlock();
-        Image image = new Image();
-        string subredditName = "Pictures";
+        private readonly ApiHandler api = new ApiHandler();
+        readonly Label title = new Label();
+        readonly TextBlock selftext = new TextBlock();
+        readonly Image image = new Image();
+        string subredditName = "Pics";
+        private int postId = 0;
 
         public YarrDashboardView()
         {
@@ -68,13 +57,15 @@ namespace Yarr_for_Reddit.src.view
             Stack.Children.Add(title);
             Stack.Children.Add(selftext);
             Stack.Children.Add(image);
-            currentPageTextBlock.Text = "Page : "+ postId.ToString();
             PreviousPostButtonEnabler();
             UpdateInfo();
         }
 
         public void UpdateInfo()
         {
+            var Page = (postId + 1).ToString();
+            currentPageTextBlock.Text = "Page : " + Page;
+
             SubredditNameTextBlock.Text = "Name : " + api.sub.data.children[postId].data.subreddit_name_prefixed;
             SubredditSubscribersTextBlock.Text = "Subscribers : " + api.sub.data.children[postId].data.subreddit_subscribers;
 
@@ -83,13 +74,17 @@ namespace Yarr_for_Reddit.src.view
             DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(api.sub.data.children[postId].data.created_utc));
             createdUTCTextBlock.Text ="Created at : " + dateTimeOffset;
         }
-
+        /// <summary>
+        /// Go to next post in subreddit
+        /// </summary>
         public void NextPost()
         {
             postId++;
             CreatePost();
         }
-
+        /// <summary>
+        /// Go to previous post in subreddit
+        /// </summary>
         public void PreviousPost()
         {
             if (postId > 0)
@@ -98,7 +93,9 @@ namespace Yarr_for_Reddit.src.view
             }
             CreatePost();
         }
-
+        /// <summary>
+        /// Disables Previous post button if there is no previous post available
+        /// </summary>
         public void PreviousPostButtonEnabler()
         {
             if (postId == 0)
@@ -113,62 +110,88 @@ namespace Yarr_for_Reddit.src.view
             }
         }
 
-        // Loads the next post.
         private void NextPostButton_Click(object sender, RoutedEventArgs e)
         {
             NextPost();
         }
-        // Loads the previous post.
+      
         private void PreviousPostButton_Click(object sender, RoutedEventArgs e)
         {
             PreviousPost();
         }
 
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            subredditName = t.Text;
-        }
-
         private void GoToSubredditButton_Click(object sender, RoutedEventArgs e)
         {
+            subredditName = t.Text;
             postId = 0;
             CreatePost();
         }
 
-        private void gamingSubredditButton_Click(object sender, RoutedEventArgs e)
+        //Popular subreddit shortcuts
+        /// <summary>
+        /// Go to r/Gaming button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GamingSubredditButton_Click(object sender, RoutedEventArgs e)
         {
             subredditName = "Gaming";
+            postId = 0;
             CreatePost();
         }
-
+        /// <summary>
+        /// Go to r/TheNetherlands button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TheNetherlandsSubredditButton_Click(object sender, RoutedEventArgs e)
         {
             subredditName = "TheNetherlands";
+            postId = 0;
             CreatePost();
         }
-
+        /// <summary>
+        /// Go to r/AjaxAmsterdam button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AjaxAmsterdamSubredditButton_Click(object sender, RoutedEventArgs e)
         {
             subredditName = "AjaxAmsterdam";
+            postId = 0;
             CreatePost();
         }
-
+        /// <summary>
+        /// Go to r/Funny button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FunnySubredditButton_Click(object sender, RoutedEventArgs e)
         {
             subredditName = "Funny";
+            postId = 0;
             CreatePost();
         }
-
+        /// <summary>
+        /// Go to r/AskReddit button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AskRedditSubredditButton_Click(object sender, RoutedEventArgs e)
         {
             subredditName = "AskReddit";
+            postId = 0;
             CreatePost();
         }
-
+        /// <summary>
+        /// Go to r/Pics button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PicsSubredditButton_Click(object sender, RoutedEventArgs e)
         {
             subredditName = "Pics";
+            postId = 0;
             CreatePost();
         }
     }
