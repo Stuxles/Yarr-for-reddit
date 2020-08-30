@@ -30,23 +30,24 @@ namespace Yarr_for_Reddit.src.view
 
         public YarrDashboardView()
         {
-            _ = api.getApiData(subredditName);
+            _ = api.GetApiData(subredditName);
             InitializeComponent();
-            CreatePost(postId);
+            CreatePost();
+            t.Text = subredditName;
         }
 
-        public async void CreatePost(int postId)
+        public async void CreatePost()
         {
-            await api.getApiData(subredditName);
+            await api.GetApiData(subredditName);
          
-            string uri;
+            string uriString;
             if (api.sub.data.children[postId].data.url_overridden_by_dest != null)
             {
-                uri = api.sub.data.children[postId].data.url_overridden_by_dest;
+                uriString = api.sub.data.children[postId].data.url_overridden_by_dest;
             }
             else
             {
-                uri = "https://cdn3.iconfinder.com/data/icons/abstract-1/512/no_image-512.png";
+                uriString = "https://cdn3.iconfinder.com/data/icons/abstract-1/512/no_image-512.png";
             }
             
 
@@ -54,26 +55,26 @@ namespace Yarr_for_Reddit.src.view
             title.Content = api.sub.data.children[postId].data.title;
             title.FontSize = 70;
             title.FontFamily = new FontFamily("Trebuchet MS");
-            //TODO afvangen dat uri string soms null is, geeft nu nog een error
-            image.Source = new BitmapImage(new Uri(
-             api.sub.data.children[postId].data.url_overridden_by_dest));
+            image.Source = new BitmapImage(new Uri(uriString));
             image.Width = 250;
             image.Height = 300;
 
+            stacky.Children.Clear();
             stacky.Children.Add(title);
             stacky.Children.Add(image);
+
         }
 
-        public void nextPost()
+        public void NextPost()
         {
             stacky.Children.Remove(title);
             stacky.Children.Remove(image);
 
             postId++;
-            CreatePost(postId);
+            CreatePost();
         }
 
-        public void previousPost()
+        public void PreviousPost()
         {
             stacky.Children.Remove(title);
             stacky.Children.Remove(image);
@@ -82,19 +83,23 @@ namespace Yarr_for_Reddit.src.view
             {
                 postId--;
             }
-            CreatePost(postId);
+            CreatePost();
         }
 
         // Loads the next post.
         private void NextPostButton_Click(object sender, RoutedEventArgs e)
         {
-            nextPost();
+            NextPost();
         }
         // Loads the previous post.
         private void PreviousPostButton_Click(object sender, RoutedEventArgs e)
         {
-            previousPost();
+            PreviousPost();
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            subredditName = t.Text;
+        }
     }
 }

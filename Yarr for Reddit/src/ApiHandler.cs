@@ -16,7 +16,7 @@ namespace Yarr_for_Reddit.src
         public Rootobject sub = new Rootobject();
 
         //onnodige await
-        public async Task<Rootobject> getApiData(string subredditName)
+        public async Task<Rootobject> GetApiData(string subredditName)
         {
             string subredditUrl = "https://www.reddit.com/r/" + subredditName + ".json";
             SubredditModel subreddit = new SubredditModel();
