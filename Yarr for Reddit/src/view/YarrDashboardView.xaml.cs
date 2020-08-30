@@ -30,7 +30,6 @@ namespace Yarr_for_Reddit.src.view
 
         public YarrDashboardView()
         {
-            _ = api.GetApiData(subredditName);
             InitializeComponent();
             CreatePost();
             t.Text = subredditName;
@@ -74,7 +73,7 @@ namespace Yarr_for_Reddit.src.view
 
         public void PreviousPost()
         {
-            if (postId > 1)
+            if (postId > 0)
             {
                 postId--;
             }
