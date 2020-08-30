@@ -60,8 +60,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="src\model\SubData.cs" />
-    <Compile Include="src\view\PostView.xaml.cs">
-      <DependentUpon>PostView.xaml</DependentUpon>
+    <Compile Include="src\view\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\view\SubredditView.xaml.cs">
       <DependentUpon>SubredditView.xaml</DependentUpon>
@@ -81,9 +81,9 @@
     <Compile Include="src\viewmodel\PostViewModel.cs" />
     <Compile Include="src\viewmodel\SubredditViewModel.cs" />
     <Compile Include="src\viewmodel\YarrDashboardViewModel.cs" />
-    <Page Include="src\view\PostView.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="src\view\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="src\view\SubredditView.xaml">
       <SubType>Designer</SubType>

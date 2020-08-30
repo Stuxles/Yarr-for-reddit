@@ -17,13 +17,9 @@ namespace Yarr_for_Reddit.src.view
     /// <summary>
     /// Interaction logic for PostView.xaml
     /// </summary>
-    public partial class PostView : Window
+    public partial class MainWindow : Window
     {
-        public PostView()
-        {
-            InitializeComponent();
-        }
+        
 
-       
     }
 }

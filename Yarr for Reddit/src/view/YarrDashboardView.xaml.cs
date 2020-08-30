@@ -27,7 +27,7 @@ namespace Yarr_for_Reddit.src.view
         Label title = new Label();
         TextBlock selftext = new TextBlock();
         Image image = new Image();
-        string subredditName = "picture";
+        string subredditName = "Pictures";
 
         public YarrDashboardView()
         {
@@ -42,7 +42,7 @@ namespace Yarr_for_Reddit.src.view
          
             //title
             title.Content = api.sub.data.children[postId].data.title;
-            title.FontSize = 32;
+            title.FontSize = 28;
             title.FontFamily = new FontFamily("Trebuchet MS");
 
             //selftext
@@ -60,8 +60,8 @@ namespace Yarr_for_Reddit.src.view
                 uriString = "https://cdn3.iconfinder.com/data/icons/abstract-1/512/no_image-512.png";
             }
             image.Source = new BitmapImage(new Uri(uriString));
-            image.Width = 250;
-            image.Height = 300;
+            image.Width = 600;
+            image.Height = 500;
 
             //update view
             Stack.Children.Clear();
@@ -80,9 +80,8 @@ namespace Yarr_for_Reddit.src.view
 
             authorTextBlock.Text = "Author : " + api.sub.data.children[postId].data.author;
             upvotesTextBlock.Text = "Upvotes : " + api.sub.data.children[postId].data.ups;
-            downvotesTextBlock.Text = "Downvotes : " + api.sub.data.children[postId].data.ups;
-            createdUTCTextBlock.Text ="Created at : " + api.sub.data.children[postId].data.downs;
-
+            DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(api.sub.data.children[postId].data.created_utc));
+            createdUTCTextBlock.Text ="Created at : " + dateTimeOffset;
         }
 
         public void NextPost()
@@ -137,9 +136,40 @@ namespace Yarr_for_Reddit.src.view
             CreatePost();
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void gamingSubredditButton_Click(object sender, RoutedEventArgs e)
         {
+            subredditName = "Gaming";
+            CreatePost();
+        }
 
+        private void TheNetherlandsSubredditButton_Click(object sender, RoutedEventArgs e)
+        {
+            subredditName = "TheNetherlands";
+            CreatePost();
+        }
+
+        private void AjaxAmsterdamSubredditButton_Click(object sender, RoutedEventArgs e)
+        {
+            subredditName = "AjaxAmsterdam";
+            CreatePost();
+        }
+
+        private void FunnySubredditButton_Click(object sender, RoutedEventArgs e)
+        {
+            subredditName = "Funny";
+            CreatePost();
+        }
+
+        private void AskRedditSubredditButton_Click(object sender, RoutedEventArgs e)
+        {
+            subredditName = "AskReddit";
+            CreatePost();
+        }
+
+        private void PicsSubredditButton_Click(object sender, RoutedEventArgs e)
+        {
+            subredditName = "Pics";
+            CreatePost();
         }
     }
 }
