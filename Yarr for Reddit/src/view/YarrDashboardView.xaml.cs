@@ -39,7 +39,6 @@ namespace Yarr_for_Reddit.src.view
         {
             await api.GetApiData(subredditName);
          
-            
             //title
             title.Content = api.sub.data.children[postId].data.title;
             title.FontSize = 42;
@@ -62,7 +61,8 @@ namespace Yarr_for_Reddit.src.view
             stacky.Children.Clear();
             stacky.Children.Add(title);
             stacky.Children.Add(image);
-
+            currentPageTextBlock.Text = "Page : "+ postId.ToString();
+            PreviousPostButtonEnabler();
         }
 
         public void NextPost()
@@ -78,6 +78,18 @@ namespace Yarr_for_Reddit.src.view
                 postId--;
             }
             CreatePost();
+        }
+
+        public void PreviousPostButtonEnabler()
+        {
+            if (postId == 0)
+            {
+                PreviousPostButton.IsEnabled = false;
+            }
+            else
+            {
+                PreviousPostButton.IsEnabled = true;
+            }
         }
 
         // Loads the next post.
