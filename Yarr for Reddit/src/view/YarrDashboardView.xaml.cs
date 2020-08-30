@@ -25,6 +25,7 @@ namespace Yarr_for_Reddit.src.view
         ApiHandler api = new ApiHandler();
         int postId = 0;
         Label title = new Label();
+        TextBlock selftext = new TextBlock();
         Image image = new Image();
         string subredditName = "picture";
 
@@ -41,9 +42,13 @@ namespace Yarr_for_Reddit.src.view
          
             //title
             title.Content = api.sub.data.children[postId].data.title;
-            title.FontSize = 42;
+            title.FontSize = 32;
             title.FontFamily = new FontFamily("Trebuchet MS");
 
+            //selftext
+            selftext.Text = api.sub.data.children[postId].data.selftext;
+            selftext.FontSize = 12;
+            selftext.FontFamily = new FontFamily("Trebuchet MS");
             //image
             string uriString;
             if (api.sub.data.children[postId].data.url_overridden_by_dest != null)
@@ -58,11 +63,26 @@ namespace Yarr_for_Reddit.src.view
             image.Width = 250;
             image.Height = 300;
 
-            stacky.Children.Clear();
-            stacky.Children.Add(title);
-            stacky.Children.Add(image);
+            //update view
+            Stack.Children.Clear();
+            Stack.Children.Add(title);
+            Stack.Children.Add(selftext);
+            Stack.Children.Add(image);
             currentPageTextBlock.Text = "Page : "+ postId.ToString();
             PreviousPostButtonEnabler();
+            UpdateInfo();
+        }
+
+        public void UpdateInfo()
+        {
+            SubredditNameTextBlock.Text = "Name : " + api.sub.data.children[postId].data.subreddit_name_prefixed;
+            SubredditSubscribersTextBlock.Text = "Subscribers : " + api.sub.data.children[postId].data.subreddit_subscribers;
+
+            authorTextBlock.Text = "Author : " + api.sub.data.children[postId].data.author;
+            upvotesTextBlock.Text = "Upvotes : " + api.sub.data.children[postId].data.ups;
+            downvotesTextBlock.Text = "Downvotes : " + api.sub.data.children[postId].data.ups;
+            createdUTCTextBlock.Text ="Created at : " + api.sub.data.children[postId].data.downs;
+
         }
 
         public void NextPost()
@@ -85,10 +105,12 @@ namespace Yarr_for_Reddit.src.view
             if (postId == 0)
             {
                 PreviousPostButton.IsEnabled = false;
+                PreviousPostButton.Visibility = Visibility.Collapsed;
             }
             else
             {
                 PreviousPostButton.IsEnabled = true;
+                PreviousPostButton.Visibility = Visibility.Visible;
             }
         }
 
@@ -103,6 +125,7 @@ namespace Yarr_for_Reddit.src.view
             PreviousPost();
         }
 
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             subredditName = t.Text;
@@ -112,6 +135,11 @@ namespace Yarr_for_Reddit.src.view
         {
             postId = 0;
             CreatePost();
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

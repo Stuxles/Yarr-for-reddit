@@ -26,6 +26,5 @@ namespace Yarr_for_Reddit.src
             return await Task.FromResult(sub);
         }
 
-
     }
 }

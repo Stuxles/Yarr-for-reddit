@@ -69,10 +69,6 @@
     <Compile Include="src\view\YarrDashboardView.xaml.cs">
       <DependentUpon>YarrDashboardView.xaml</DependentUpon>
     </Compile>
-    <Page Include="src\view\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -82,14 +78,9 @@
     <Compile Include="src\model\CommentModel.cs" />
     <Compile Include="src\model\PostModel.cs" />
     <Compile Include="src\model\SubredditModel.cs" />
-    <Compile Include="src\viewmodel\BaseViewModel.cs" />
     <Compile Include="src\viewmodel\PostViewModel.cs" />
     <Compile Include="src\viewmodel\SubredditViewModel.cs" />
     <Compile Include="src\viewmodel\YarrDashboardViewModel.cs" />
-    <Compile Include="src\view\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Page Include="src\view\PostView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

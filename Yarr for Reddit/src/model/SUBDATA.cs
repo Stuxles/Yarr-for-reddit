@@ -9,7 +9,6 @@ using Newtonsoft.Json.Converters;
 
 namespace Yarr_for_Reddit.src.model
 {
-
     public class Rootobject
     {
         public string kind { get; set; }
